@@ -1,5 +1,18 @@
 services:
-  redis:
-    image: 'redis:latest'
+  redish:
+    container_name: redish
+    image: redish:latest
+    depends_on:
+      - redis-db
     ports:
-      - '6379'
+      - 8989:8989
+    networks:
+      redish-network:
+  redis-db:
+    image: 'redis:alpine3.18'
+    ports:
+      - 6363:6379
+
+networks:
+  redish-network:
+    name: redish-net

@@ -1,0 +1,14 @@
+server:
+  port: 8989
+  error:
+    whitelabel:
+      enabled: false
+spring:
+  devtools:
+    restart:
+      enabled: false
+  data:
+    redis:
+      host: localhost
+      port: 6363
+      database: 0
