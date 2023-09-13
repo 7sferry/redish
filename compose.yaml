@@ -1,5 +1,7 @@
 services:
   redish:
+    build:
+      context: .
     container_name: redish
     image: redish:latest
     depends_on:
@@ -7,11 +9,15 @@ services:
     ports:
       - 8989:8989
     networks:
-      redish-network:
+      - redish-network
   redis-db:
     image: 'redis:alpine3.18'
+    container_name: redis
+    command: "redis-server --save "" --requirepass 12345"
     ports:
       - 6363:6379
+    networks:
+      - redish-network
 
 networks:
   redish-network:

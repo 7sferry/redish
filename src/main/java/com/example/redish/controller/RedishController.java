@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.Serializable;
 import java.time.Duration;
 import java.util.Set;
 
@@ -42,12 +41,6 @@ public class RedishController{
 			redisOperations.opsForValue().set(key, value);
 		}
 		return value;
-	}
-
-	@RequiredArgsConstructor
-	public static class Teacher implements Serializable{
-		private final int id;
-		private final String name;
 	}
 
 	@GetMapping("setStudent")
